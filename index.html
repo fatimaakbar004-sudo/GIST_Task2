@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>DashFlow — Business Overview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <aside class="sidebar">
+        <div class="logo">DashFlow</div>
+        <div class="logo-sub">Operations desk</div>
+        <ul class="nav-links">
+          <li>
+            <button class="active" data-section="overview">
+              <span class="dot"></span>Overview
+            </button>
+          </li>
+          <li>
+            <button data-section="orders">
+              <span class="dot"></span>Orders
+            </button>
+          </li>
+          <li>
+            <button data-section="customers">
+              <span class="dot"></span>Customers
+            </button>
+          </li>
+          <li>
+            <button data-section="settings">
+              <span class="dot"></span>Settings
+            </button>
+          </li>
+        </ul>
+        <div class="sidebar-footer">Last synced 5 minutes ago.</div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div>
+            <h1 id="page-title">Dashboard overview</h1>
+            <p id="page-subtitle">
+              Welcome back — here's how the business is tracking.
+            </p>
+          </div>
+          <div class="profile">
+            <div class="avatar">FA</div>
+            <div>
+              <div class="name">Fatima Akbar</div>
+              <div class="role">Store owner</div>
+            </div>
+          </div>
+        </header>
+
+        <section class="stats-grid">
+          <div class="stat-card">
+            <h3>Total revenue</h3>
+            <div class="number num" id="revenue">$24,580</div>
+            <div class="change">▲ 12.5% from last month</div>
+          </div>
+          <div class="stat-card">
+            <h3>Total orders</h3>
+            <div class="number num" id="orders-count">156</div>
+            <div class="change">▲ 8.2% from last month</div>
+          </div>
+          <div class="stat-card">
+            <h3>Customers</h3>
+            <div class="number num" id="customers-count">1,248</div>
+            <div class="change">▲ 5.4% from last month</div>
+          </div>
+          <div class="stat-card">
+            <h3>Conversion rate</h3>
+            <div class="number num" id="conversion">4.8%</div>
+            <div class="change">▲ 1.2% from last month</div>
+          </div>
+        </section>
+
+        <section class="dashboard-grid">
+          <div class="panel">
+            <div class="panel-header">
+              <h2>Revenue overview</h2>
+              <select id="chart-period" aria-label="Revenue period">
+                <option value="monthly">Monthly</option>
+                <option value="weekly">Weekly</option>
+              </select>
+            </div>
+            <div class="chart" id="chart">
+              <div class="bar-group">
+                <div class="bar" style="--height: 40%"></div>
+                <span>Jan</span>
+              </div>
+              <div class="bar-group">
+                <div class="bar" style="--height: 65%"></div>
+                <span>Feb</span>
+              </div>
+              <div class="bar-group">
+                <div class="bar" style="--height: 50%"></div>
+                <span>Mar</span>
+              </div>
+              <div class="bar-group">
+                <div class="bar" style="--height: 80%"></div>
+                <span>Apr</span>
+              </div>
+              <div class="bar-group">
+                <div class="bar" style="--height: 70%"></div>
+                <span>May</span>
+              </div>
+              <div class="bar-group">
+                <div class="bar" style="--height: 95%"></div>
+                <span>Jun</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header"><h2>Recent activity</h2></div>
+            <ul class="activity-list">
+              <li>
+                <div class="activity-icon">✓</div>
+                <div>
+                  <p>New order received</p>
+                  <small>5 minutes ago</small>
+                </div>
+              </li>
+              <li>
+                <div class="activity-icon">＋</div>
+                <div>
+                  <p>New customer registered</p>
+                  <small>20 minutes ago</small>
+                </div>
+              </li>
+              <li>
+                <div class="activity-icon">$</div>
+                <div>
+                  <p>Payment completed</p>
+                  <small>1 hour ago</small>
+                </div>
+              </li>
+              <li>
+                <div class="activity-icon">▣</div>
+                <div>
+                  <p>Order shipped successfully</p>
+                  <small>2 hours ago</small>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="panel table-panel" id="orders-section">
+          <div class="panel-header">
+            <h2>Recent orders</h2>
+            <span
+              id="visible-count"
+              style="color: var(--muted); font-size: 13px"
+              >6 orders</span
+            >
+          </div>
+
+          <div class="table-controls">
+            <input
+              type="search"
+              id="search-input"
+              placeholder="Search by customer or product..."
+            />
+            <select id="status-filter" aria-label="Filter orders by status">
+              <option value="all">All statuses</option>
+              <option value="Completed">Completed</option>
+              <option value="Pending">Pending</option>
+              <option value="Cancelled">Cancelled</option>
+            </select>
+          </div>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer</th>
+                  <th>Product</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="orders-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel form-panel" id="form-section">
+          <div class="panel-header"><h2>Add new order</h2></div>
+          <form id="order-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="customer">Customer name</label>
+                <input
+                  type="text"
+                  id="customer"
+                  placeholder="Enter customer name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="product">Product</label>
+                <input
+                  type="text"
+                  id="product"
+                  placeholder="Enter product name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="amount">Amount ($)</label>
+                <input
+                  type="number"
+                  id="amount"
+                  min="1"
+                  step="0.01"
+                  placeholder="Enter amount"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="new-status">Status</label>
+                <select id="new-status">
+                  <option value="Completed">Completed</option>
+                  <option value="Pending">Pending</option>
+                  <option value="Cancelled">Cancelled</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="submit-btn">Add order</button>
+            <p class="form-message" id="form-message"></p>
+          </form>
+        </section>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
